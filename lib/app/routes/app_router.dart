@@ -1,6 +1,8 @@
+import 'package:flutter_boilerplate/app/features/about/presentation/pages/about_page.dart';
 import 'package:flutter_boilerplate/app/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:flutter_boilerplate/app/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_boilerplate/app/features/settings/presentation/pages/settings_page.dart';
+import 'package:flutter_boilerplate/app/features/settings/presentation/pages/theme_page.dart';
 import 'package:flutter_boilerplate/app/layout/desktop_layout.dart';
 import 'package:flutter_boilerplate/app/layout/mobile_layout.dart';
 import 'package:flutter_boilerplate/app/routes/app_routes.dart';
@@ -11,7 +13,7 @@ import 'package:go_router/go_router.dart';
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: AppRoutes.home,
-  routes: <RouteBase>[
+  routes: [
     ShellRoute(
       builder: (context, state, child) {
         final location = state.uri.path;
@@ -24,33 +26,25 @@ final GoRouter appRouter = GoRouter(
       routes: [
         GoRoute(
           path: AppRoutes.home,
-          name: AppRoutes.home,
-          pageBuilder: (context, state) {
-            return NoTransitionPage(
-              key: state.pageKey,
-              child: const HomePage(),
-            );
-          },
+          builder: (context, state) => const HomePage(),
         ),
         GoRoute(
           path: AppRoutes.dashboard,
-          name: AppRoutes.dashboard,
-          pageBuilder: (context, state) {
-            return NoTransitionPage(
-              key: state.pageKey,
-              child: const DashboardPage(),
-            );
-          },
+          builder: (context, state) => const DashboardPage(),
         ),
         GoRoute(
           path: AppRoutes.settings,
-          name: AppRoutes.settings,
-          pageBuilder: (context, state) {
-            return NoTransitionPage(
-              key: state.pageKey,
-              child: const SettingsPage(),
-            );
-          },
+          builder: (context, state) => const SettingsPage(),
+          routes: [
+            GoRoute(
+              path: 'about',
+              builder: (context, state) => const AboutPage(),
+            ),
+            GoRoute(
+              path: 'theme',
+              builder: (context, state) => const ThemePage(),
+            ),
+          ],
         ),
       ],
     ),

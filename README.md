@@ -42,6 +42,7 @@
 - **Dark Mode Provider** - Theme switching
 - **GoRouter** - Declarative routing with adaptive navigation (mobile/web)
 - **Flutter Local Notifications** - Push notifications
+- **Toast Notification** - Lightweight in-app feedback messages
 - **Responsive Layout** - Adaptive UI for mobile and web
 - **Sentry Logs** - Error tracking and monitoring
 - **Skeleton** - Skeleton Wrapper Widget Animation
@@ -50,6 +51,7 @@
 - **HTTP Service** - Centralized REST client with logging
 - **Internet Connection** - Real-time connectivity detection
 - **App Logger** - Structured, color-coded debug logging
+- **Robots.txt & Sitemap.xml** - SEO-ready web configuration included
 
 ---
 

@@ -16,8 +16,10 @@ class MobileLayout extends StatelessWidget {
   ];
 
   int get _currentIndex {
-    final int index = _routes.indexOf(location);
-    return index >= 0 ? index : 0;
+    if (location == AppRoutes.home) return 0;
+    if (location.startsWith(AppRoutes.dashboard)) return 1;
+    if (location.startsWith(AppRoutes.settings)) return 2;
+    return 0;
   }
 
   @override

@@ -15,9 +15,16 @@ class DesktopLayout extends StatelessWidget {
     AppRoutes.settings,
   ];
 
+  bool _matchesRoute(String location, String route) {
+    return location == route || location.startsWith('$route/');
+  }
+
   int get _currentIndex {
-    final index = _routes.indexOf(location);
-    return index >= 0 ? index : 0;
+    if (_matchesRoute(location, AppRoutes.home)) return 0;
+    if (_matchesRoute(location, AppRoutes.dashboard)) return 1;
+    if (_matchesRoute(location, AppRoutes.settings)) return 2;
+
+    return 0;
   }
 
   @override

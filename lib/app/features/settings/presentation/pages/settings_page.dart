@@ -1,16 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/app/features/about/presentation/pages/about_page.dart';
-import 'package:flutter_boilerplate/app/features/settings/presentation/pages/theme_page.dart';
 import 'package:flutter_boilerplate/app/presentation/viewmodels/locale_viewmodel.dart';
 import 'package:flutter_boilerplate/app/presentation/viewmodels/notification_viewmodel.dart';
+import 'package:flutter_boilerplate/app/routes/app_routes.dart';
 import 'package:flutter_boilerplate/app/shared/assets/locale_flag.dart';
 import 'package:flutter_boilerplate/app/shared/extensions/context_extension.dart';
 import 'package:flutter_boilerplate/app/shared/theme/app_borders.dart';
 import 'package:flutter_boilerplate/app/shared/theme/app_spacing.dart';
 import 'package:flutter_boilerplate/app/shared/widgets/app_top_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -107,10 +107,7 @@ class SettingsPage extends StatelessWidget {
               icon: Icons.color_lens_outlined,
               title: 'theme'.tr(),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(builder: (_) => const ThemePage()),
-                );
+                context.go(AppRoutes.theme);
               },
             ),
 
@@ -119,10 +116,7 @@ class SettingsPage extends StatelessWidget {
               icon: Icons.info_outline,
               title: 'about'.tr(),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(builder: (_) => const AboutPage()),
-                );
+                context.go(AppRoutes.about);
               },
             ),
           ],
